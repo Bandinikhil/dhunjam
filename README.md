@@ -1,3 +1,55 @@
+# Admin Dashboard
+
+This project is an Admin Dashboard for managing song request prices and settings on Dhun Jam.
+
+## Deployed Link
+
+[Admin Dashboard]()
+
+## Screenshots
+
+## Table of Contents
+
+- [Description](#description)
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Description
+
+The Admin Dashboard is a web application built with React and Redux. It allows administrators to manage song request prices, settings, and other related information on the Dhun Jam platform.
+
+## Features
+
+- View and edit administrator details
+- Customize song request amounts
+- Enable or disable charging customers for song requests
+- Visualize song request amounts with a bar graph
+
+## Getting Started
+
+### Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- [Node.js](https://nodejs.org/) - JavaScript runtime
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/) - Package managers for Node.js
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/admin-dashboard.git
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
