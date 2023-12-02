@@ -129,126 +129,81 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className="bg-[#030303] h-screen">
+    <div className="bg-[#030303] min-h-screen p-4">
       <div className="text-4xl text-center text-white mb-8 font-['Poppins']">
         {`${name}, ${location} on Dhun Jam`}
       </div>
-      <center>
-        <div className="flex items-center justify-center mt-6 ">
-          <label
-            className="mr-28 my-2 font-['Poppins']"
-            style={{ fontSize: "16px", color: "#FFFFFF" }}
-          >
-            Do you want to charge your <br /> customers for requesting songs?
+      <div className="flex flex-col items-center justify-center mt-6 mb-6">
+        <label className="my-2 font-['Poppins'] text-white">
+          Do you want to charge your customers for requesting songs?
+        </label>
+        <div className="flex items-center justify-center space-x-4">
+          <input
+            type="radio"
+            id="yes"
+            name="chargeCustomers"
+            value="yes"
+            checked={isCharging}
+            onChange={() => setIsCharging(true)}
+          />
+          <label htmlFor="yes" className="text-white">
+            Yes
           </label>
-          <div className="mx-4">
-            <input
-              type="radio"
-              id="yes"
-              name="chargeCustomers"
-              value="yes"
-              checked={isCharging}
-              onChange={() => setIsCharging(true)}
-              style={{ backgroundColor: "#FFFFFF" }}
-            />
-            <label htmlFor="yes" style={{ fontSize: "16px", color: "#FFFFFF" }}>
-              Yes
-            </label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="no"
-              name="chargeCustomers"
-              value="no"
-              checked={!isCharging}
-              onChange={() => setIsCharging(false)}
-              style={{ backgroundColor: "#FFFFFF" }}
-            />
-            <label htmlFor="no" style={{ fontSize: "16px", color: "#FFFFFF" }}>
-              No
-            </label>
-          </div>
+          <input
+            type="radio"
+            id="no"
+            name="chargeCustomers"
+            value="no"
+            checked={!isCharging}
+            onChange={() => setIsCharging(false)}
+          />
+          <label htmlFor="no" className="text-white">
+            No
+          </label>
         </div>
 
         {isCharging && (
-          <div className="flex justify-center items-center mx-auto my-2 md:ml-28 mr-6 font-['Poppins']">
-            <label style={{ fontSize: "16px", color: "#FFFFFF" }}>
+          <div className="flex justify-center items-center my-2">
+            <label className="font-['Poppins'] text-white">
               Custom song request amount:
             </label>
             <input
               type="number"
               value={customAmount}
               onChange={(e) => setCustomAmount(parseInt(e.target.value, 10))}
-              className="border-2 rounded-md border-solid border-white bg-transparent w-44 text-white ml-20 "
+              className="border-2 rounded-md border-solid border-white bg-transparent w-44 text-white ml-2"
             />
           </div>
         )}
 
         {isCharging && (
-          <div className="flex items-center justify-center my-2">
-            <label
-              className="md:ml-40 font-['Poppins']"
-              style={{ fontSize: "16px", color: "#FFFFFF" }}
-            >
-              Regular song request amounts, <br /> from high to low:
+          <div className="flex items-center justify-center my-2 space-x-4">
+            <label className="font-['Poppins'] text-white">
+              Regular song request amounts, from high to low:
             </label>
-            <div className="md:ml-20 mr-14">
+            {Array.from({ length: 4 }, (_, i) => (
               <input
+                key={i}
                 type="number"
-                value={regularAmounts.category_7}
+                value={regularAmounts[`category_${i + 7}`]}
                 onChange={(e) =>
                   setRegularAmounts({
                     ...regularAmounts,
-                    category_7: parseInt(e.target.value, 10),
+                    [`category_${i + 7}`]: parseInt(e.target.value, 10),
                   })
                 }
-                className="border-2 rounded-md border-solid border-white bg-transparent w-12 text-white ml-1 "
+                className="border-2 rounded-md border-solid border-white bg-transparent w-12 text-white"
               />
-              <input
-                type="number"
-                value={regularAmounts.category_8}
-                onChange={(e) =>
-                  setRegularAmounts({
-                    ...regularAmounts,
-                    category_8: parseInt(e.target.value, 10),
-                  })
-                }
-                className="border-2 rounded-md border-solid border-white bg-transparent  w-12 text-white ml-1 "
-              />
-              <input
-                type="number"
-                value={regularAmounts.category_9}
-                onChange={(e) =>
-                  setRegularAmounts({
-                    ...regularAmounts,
-                    category_9: parseInt(e.target.value, 10),
-                  })
-                }
-                className="border-2 rounded-md border-solid border-white bg-transparent w-12 text-white ml-1"
-              />
-              <input
-                type="number"
-                value={regularAmounts.category_10}
-                onChange={(e) =>
-                  setRegularAmounts({
-                    ...regularAmounts,
-                    category_10: parseInt(e.target.value, 10),
-                  })
-                }
-                className="border-2 rounded-md border-solid border-white bg-transparent w-12 text-white ml-1 "
-              />
-            </div>
+            ))}
           </div>
         )}
 
         {isCharging && (
-          <div className="w-[600px]">
-            {/* <label style={{ fontSize: "16px", color: "#FFFFFF" }}>Graph:</label> */}
+          <div className="w-full md:w-2/3 lg:w-1/2 xl:w-1/3">
             <canvas
               id="myChart"
               ref={graphRef}
-              width="600"
+              className="w-full"
               height="400"
               style={{ border: "1px solid #FFFFFF" }}
             ></canvas>
@@ -257,26 +212,15 @@ const AdminDashboard = () => {
 
         <button
           onClick={handleSave}
-          className="rounded-md my-8 p-2"
+          className="rounded-md my-8 p-2 w-full md:w-2/3 lg:w-1/2 xl:w-1/3"
           style={{
             backgroundColor: "#6741D9",
             color: "#FFFFFF",
-            width: "600px",
-            marginTop: "10px",
           }}
         >
           Save
         </button>
-
-        <style>
-          {`
-input[disabled] {
-background-color: #c2c2c2;
-color: #c2c2c2;
-}
-`}
-        </style>
-      </center>
+      </div>
     </div>
   );
 };
