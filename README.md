@@ -4,9 +4,23 @@ This project is an Admin Dashboard for managing song request prices and settings
 
 ## Deployed Link
 
-[Admin Dashboard]()
+[Admin Dashboard](https://master.d1t509b0hm5vwe.amplifyapp.com/)
 
 ## Screenshots
+
+![Screenshot (178)](https://github.com/Bandinikhil/dhunjam/assets/105233916/32176c5a-e91b-4fe6-a5fd-40b544b9e5b2)
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+![Screenshot (179)](https://github.com/Bandinikhil/dhunjam/assets/105233916/f3550231-530b-4c87-bfc0-a12adb0b0542)
+
+<br/>
+<br/>
+<br/>
+
 
 ## Table of Contents
 
